@@ -4,6 +4,7 @@
   "description": "Haxe externs for lit (dev dependencies for demo and tests)",
   "scripts": {
     "build:demo": "haxe --cwd demo build.hxml && esbuild demo/bin/main.js --bundle --format=esm --conditions=development --outfile=demo/bin/bundle.js",
+    "build:demo:release": "haxe --cwd demo build.hxml && esbuild demo/bin/main.js --bundle --format=esm --minify --outfile=demo/bin/bundle.js",
     "test": "haxe test.hxml && esbuild bin/test.js --bundle --platform=browser --format=iife --outfile=bin/test.bundle.js && node test/run.mjs"
   },
   "devDependencies": {

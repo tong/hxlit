@@ -175,7 +175,7 @@ npm run build:demo
 npx esbuild --servedir=demo
 ```
 
-The demo bundles Lit's development build (`esbuild --conditions=development`), which logs warnings about misuse. Drop the flag for production.
+`build:demo` bundles Lit's development build (`esbuild --conditions=development`), which logs warnings about misuse but is large (160 KB). `build:demo:release` builds for production with minification (50 KB, 17 KB gzipped, of which Lit is about 23 KB).
 
 ## Test
 
