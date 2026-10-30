@@ -11,7 +11,7 @@ haxelib dev lit path/to/hxlit
 npm install lit
 ```
 
-Requires Haxe 5 and `-D js-es=6`. Custom elements must be real ES6 classes, and the build macro raises an error without it.
+Requires Haxe 5. Custom elements must be real ES6 classes, so `-lib lit` adds `-D js-es=6` through `extraParams.hxml`. If you add `src/` to the classpath directly instead, set `-D js-es=6` yourself; the build macro raises an error without it.
 
 The output uses `require()`, so bundle it with [esbuild](https://esbuild.github.io/), vite, or similar:
 
@@ -19,7 +19,6 @@ The output uses `require()`, so bundle it with [esbuild](https://esbuild.github.
 -lib lit
 -main Main
 -js bin/main.js
--D js-es=6
 ```
 
 ```sh
