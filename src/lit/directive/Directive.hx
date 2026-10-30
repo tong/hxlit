@@ -18,7 +18,7 @@ import lit.directive.Part;
 
 	@see https://lit.dev/docs/templates/custom-directives/
 **/
-@:jsRequire("lit/directive.js", "Directive")
+@:js.import("lit/directive.js", "Directive")
 @:keepSub // `render` is only called by lit
 extern class Directive {
 	function new(partInfo:PartInfo);
@@ -31,7 +31,7 @@ extern class Directive {
 		return DirectiveModule.directive(c);
 }
 
-@:noCompletion @:jsRequire("lit/directive.js")
+@:noCompletion @:js.import(@star "lit/directive.js")
 extern class DirectiveModule {
 	static function directive(c:Class<Directive>):Dynamic;
 }

@@ -100,7 +100,7 @@ extern class RootPart {
 }
 
 @:noCompletion
-@:jsRequire("lit")
+@:js.import(@star "lit")
 extern class LitModule {
 	static final nothing:Renderable;
 	static final noChange:Renderable;

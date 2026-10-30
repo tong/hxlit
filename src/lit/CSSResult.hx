@@ -5,7 +5,7 @@ import js.html.CSSStyleSheet;
 /**
 	Result of a `css` template or `unsafeCSS`.
 **/
-@:jsRequire("lit", "CSSResult")
+@:js.import("lit", "CSSResult")
 extern class CSSResult {
 	final cssText:String;
 	final styleSheet:Null<CSSStyleSheet>;

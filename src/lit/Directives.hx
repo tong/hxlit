@@ -141,110 +141,110 @@ typedef AsyncIterable = Dynamic;
 /** A JS iterable, renderable by lit. **/
 typedef JsIterable = Renderable;
 
-@:noCompletion @:jsRequire("lit/directives/async-append.js")
+@:noCompletion @:js.import(@star "lit/directives/async-append.js")
 extern class AsyncAppendModule {
 	static function asyncAppend(value:AsyncIterable, ?mapper:Dynamic):DirectiveResult;
 }
 
-@:noCompletion @:jsRequire("lit/directives/async-replace.js")
+@:noCompletion @:js.import(@star "lit/directives/async-replace.js")
 extern class AsyncReplaceModule {
 	static function asyncReplace(value:AsyncIterable, ?mapper:Dynamic):DirectiveResult;
 }
 
-@:noCompletion @:jsRequire("lit/directives/cache.js")
+@:noCompletion @:js.import(@star "lit/directives/cache.js")
 extern class CacheModule {
 	static function cache(value:Any):DirectiveResult;
 }
 
-@:noCompletion @:jsRequire("lit/directives/choose.js")
+@:noCompletion @:js.import(@star "lit/directives/choose.js")
 extern class ChooseModule {
 	static function choose(value:Any, cases:Array<Array<Dynamic>>, ?defaultCase:Dynamic):Dynamic;
 }
 
-@:noCompletion @:jsRequire("lit/directives/class-map.js")
+@:noCompletion @:js.import(@star "lit/directives/class-map.js")
 extern class ClassMapModule {
 	static function classMap(classInfo:ClassInfo):DirectiveResult;
 }
 
-@:noCompletion @:jsRequire("lit/directives/guard.js")
+@:noCompletion @:js.import(@star "lit/directives/guard.js")
 extern class GuardModule {
 	static function guard(value:Any, f:Dynamic):DirectiveResult;
 }
 
-@:noCompletion @:jsRequire("lit/directives/if-defined.js")
+@:noCompletion @:js.import(@star "lit/directives/if-defined.js")
 extern class IfDefinedModule {
 	static function ifDefined(value:Any):Renderable;
 }
 
-@:noCompletion @:jsRequire("lit/directives/join.js")
+@:noCompletion @:js.import(@star "lit/directives/join.js")
 extern class JoinModule {
 	static function join(items:Dynamic, joiner:Dynamic):JsIterable;
 }
 
-@:noCompletion @:jsRequire("lit/directives/keyed.js")
+@:noCompletion @:js.import(@star "lit/directives/keyed.js")
 extern class KeyedModule {
 	static function keyed(key:Any, value:Any):DirectiveResult;
 }
 
-@:noCompletion @:jsRequire("lit/directives/live.js")
+@:noCompletion @:js.import(@star "lit/directives/live.js")
 extern class LiveModule {
 	static function live(value:Any):DirectiveResult;
 }
 
-@:noCompletion @:jsRequire("lit/directives/map.js")
+@:noCompletion @:js.import(@star "lit/directives/map.js")
 extern class MapModule {
 	static function map(items:Dynamic, f:Dynamic):JsIterable;
 }
 
-@:noCompletion @:jsRequire("lit/directives/range.js")
+@:noCompletion @:js.import(@star "lit/directives/range.js")
 extern class RangeModule {
 	@:overload(function(start:Int, end:Int, step:Int):JsIterable {})
 	static function range(end:Int):JsIterable;
 }
 
-@:noCompletion @:jsRequire("lit/directives/ref.js")
+@:noCompletion @:js.import(@star "lit/directives/ref.js")
 extern class RefModule {
 	static function createRef():Dynamic;
 	static function ref(ref:Dynamic):DirectiveResult;
 }
 
-@:noCompletion @:jsRequire("lit/directives/repeat.js")
+@:noCompletion @:js.import(@star "lit/directives/repeat.js")
 extern class RepeatModule {
 	@:overload(function(items:Dynamic, keyFn:Dynamic, template:Dynamic):DirectiveResult {})
 	static function repeat(items:Dynamic, template:Dynamic):DirectiveResult;
 }
 
-@:noCompletion @:jsRequire("lit/directives/style-map.js")
+@:noCompletion @:js.import(@star "lit/directives/style-map.js")
 extern class StyleMapModule {
 	static function styleMap(styleInfo:StyleInfo):DirectiveResult;
 }
 
-@:noCompletion @:jsRequire("lit/directives/template-content.js")
+@:noCompletion @:js.import(@star "lit/directives/template-content.js")
 extern class TemplateContentModule {
 	static function templateContent(template:TemplateElement):DirectiveResult;
 }
 
-@:noCompletion @:jsRequire("lit/directives/unsafe-html.js")
+@:noCompletion @:js.import(@star "lit/directives/unsafe-html.js")
 extern class UnsafeHTMLModule {
 	static function unsafeHTML(value:Null<String>):DirectiveResult;
 }
 
-@:noCompletion @:jsRequire("lit/directives/unsafe-svg.js")
+@:noCompletion @:js.import(@star "lit/directives/unsafe-svg.js")
 extern class UnsafeSVGModule {
 	static function unsafeSVG(value:Null<String>):DirectiveResult;
 }
 
-@:noCompletion @:jsRequire("lit/directives/unsafe-mathml.js")
+@:noCompletion @:js.import(@star "lit/directives/unsafe-mathml.js")
 extern class UnsafeMathMLModule {
 	static function unsafeMathML(value:Null<String>):DirectiveResult;
 }
 
-@:noCompletion @:jsRequire("lit/directives/until.js")
+@:noCompletion @:js.import(@star "lit/directives/until.js")
 extern class UntilModule {
 	static function until(values:Rest<Any>):DirectiveResult;
 }
 
-@:noCompletion @:jsRequire("lit/directives/when.js")
+@:noCompletion @:js.import(@star "lit/directives/when.js")
 extern class WhenModule {
 	@:overload(function(condition:Bool, trueCase:Dynamic, falseCase:Dynamic):Dynamic {})
 	static function when(condition:Bool, trueCase:Dynamic):Dynamic;

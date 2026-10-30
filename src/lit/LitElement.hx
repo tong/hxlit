@@ -18,7 +18,7 @@ package lit;
 
 	@see https://lit.dev/docs/api/LitElement/
 **/
-@:jsRequire("lit", "LitElement")
+@:js.import("lit", "LitElement")
 extern class LitElement extends ReactiveElement {
 	final renderOptions:RenderOptions;
 

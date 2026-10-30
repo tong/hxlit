@@ -16,7 +16,7 @@ import lit.ReactiveController;
 
 	@see https://lit.dev/docs/api/ReactiveElement/
 **/
-@:jsRequire("lit", "ReactiveElement")
+@:js.import("lit", "ReactiveElement")
 @:autoBuild(lit.macro.Element.build())
 extern class ReactiveElement extends js.html.Element implements ReactiveControllerHost {
 	static var elementProperties(default, never):Map<String, PropertyDeclaration>;

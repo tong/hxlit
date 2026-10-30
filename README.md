@@ -13,13 +13,21 @@ npm install lit
 
 Requires Haxe 5. Custom elements must be real ES6 classes, so `-lib lit` adds `-D js-es=6` through `extraParams.hxml`. If you add `src/` to the classpath directly instead, set `-D js-es=6` yourself; the build macro raises an error without it.
 
-The output uses `require()`, so bundle it with [esbuild](https://esbuild.github.io/), vite, or similar:
+The output is an ES module that imports from `lit` (generated through `@:js.import`):
 
 ```hxml
 -lib lit
 -main Main
 -js bin/main.js
 ```
+
+With [Vite](https://vite.dev/), load the Haxe output as a module script. The dev server resolves `lit` from `node_modules`, and `vite build` bundles it. When Haxe recompiles, Vite reloads the whole page, so page state is lost. There's no hot module replacement: Haxe writes a single file, and a custom element can't be redefined after `customElements.define`.
+
+```html
+<script type="module" src="/bin/main.js"></script>
+```
+
+With [esbuild](https://esbuild.github.io/):
 
 ```sh
 esbuild bin/main.js --bundle --format=esm --outfile=bin/bundle.js
@@ -75,7 +83,7 @@ Templates, directives, `nothing` and `noChange` are all typed `lit.Renderable`. 
 cond ? html(<b>yes</b>) : nothing
 ```
 
-Custom element tags used in templates are checked after typing. A tag that no compiled class with `@:customElement` defines produces a warning. Usually this means a missing import: a class referenced only by its tag name is never compiled. To declare third-party elements, add an extern class with `@:customElement("their-tag")`. Its `require()` is emitted only if the class is referenced, so mention it once (e.g. `SlButton;`) to load the component. To disable the check, use `-D lit-no-tag-check`.
+Custom element tags used in templates are checked after typing. A tag that no compiled class with `@:customElement` defines produces a warning. Usually this means a missing import: a class referenced only by its tag name is never compiled. To declare third-party elements, add an extern class with `@:customElement("their-tag")`. Its import is emitted only if the class is referenced, so mention it once (e.g. `SlButton;`) to load the component. To disable the check, use `-D lit-no-tag-check`.
 
 ### Elements
 

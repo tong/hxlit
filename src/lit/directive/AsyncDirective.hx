@@ -5,7 +5,7 @@ package lit.directive;
 
 	@see https://lit.dev/docs/templates/custom-directives/#async-directives
 **/
-@:jsRequire("lit/async-directive.js", "AsyncDirective")
+@:js.import("lit/async-directive.js", "AsyncDirective")
 extern class AsyncDirective extends Directive {
 	/** The connection state of the directive. **/
 	final isConnected:Bool;
