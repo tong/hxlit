@@ -127,7 +127,7 @@ class Directives {
 /**
 	Callback taking an item and optionally its index, `item -> ...` or `(item, index) -> ...`.
 **/
-abstract ItemFn<T>(Dynamic) from T->Any from (T, Int)->Any {}
+abstract ItemFn<T>(Dynamic) from T->Any from (T, Int) -> Any {}
 
 /** Keys are CSS class names, values determine whether the class is applied. **/
 typedef ClassInfo = DynamicAccess<Bool>;

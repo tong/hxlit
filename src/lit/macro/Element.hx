@@ -61,15 +61,16 @@ class Element {
 			// Lifecycle methods are only called by lit
 			if (f.access != null && f.access.contains(AOverride))
 				keep(f);
-			if (f.meta != null) for (m in f.meta) {
-				switch m.name {
-					case ":property", ":state":
-						declarations.push({field: f.name, expr: declaration(f, m, m.name == ":state")});
-					case ":query", ":queryAll":
-						extra.push(query(f, m));
-					case _:
+			if (f.meta != null)
+				for (m in f.meta) {
+					switch m.name {
+						case ":property", ":state":
+							declarations.push({field: f.name, expr: declaration(f, m, m.name == ":state")});
+						case ":query", ":queryAll":
+							extra.push(query(f, m));
+						case _:
+					}
 				}
-			}
 			switch f.kind {
 				case FVar(t, e) if (e != null):
 					f.kind = FVar(t != null ? t : typeOf(f, e), null);
@@ -191,7 +192,8 @@ class Element {
 			case FVar(t, e), FProp(_, _, t, e):
 				if (t != null) t.toType() else if (e != null) Context.typeof(e) else null;
 			case FFun(_): null;
-		} catch (_) null;
+		} catch (_)
+			null;
 		if (t == null)
 			return null;
 		return switch Context.followWithAbstracts(t) {
@@ -253,7 +255,9 @@ class Element {
 			case _:
 		}
 		final t = try Context.typeof(e).toComplexType() catch (_) null;
-		return t != null ? t : Context.error('Type hint required for field ${f.name}: lit element initializers are moved into the constructor and their type can\'t be inferred here', f.pos);
+		return
+			t != null ? t : Context.error('Type hint required for field ${f.name}: lit element initializers are moved into the constructor and their type can\'t be inferred here',
+				f.pos);
 	}
 
 	static function keep(f:Field) {

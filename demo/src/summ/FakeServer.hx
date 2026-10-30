@@ -42,7 +42,13 @@ class FakeServer {
 	}
 
 	public function send(body:String):Message {
-		final msg:Message = {id: id(), from: "me", body: body, time: Date.now(), outgoing: true};
+		final msg:Message = {
+			id: id(),
+			from: "me",
+			body: body,
+			time: Date.now(),
+			outgoing: true
+		};
 		later(300, () -> onReceipt(msg.id));
 		later(700, () -> onChatState(Composing));
 		later(2000, () -> reply(answer(body)));
@@ -61,7 +67,13 @@ class FakeServer {
 
 	function reply(body:String) {
 		onChatState(Active);
-		onMessage({id: id(), from: owner, body: body, time: Date.now(), outgoing: false});
+		onMessage({
+			id: id(),
+			from: owner,
+			body: body,
+			time: Date.now(),
+			outgoing: false
+		});
 	}
 
 	function answer(body:String):String {

@@ -7,13 +7,16 @@ import lit.LitElement;
 /** Container with header, content and footer slots **/
 @:customElement("summ-card")
 class Card extends LitElement {
-	static var styles = [Theme.base, css('
+	static var styles = [
+		Theme.base,
+		css('
 		:host { display: block; border: 1px solid #ddd; border-radius: 10px; background: white; overflow: hidden; }
 		header { padding: .6rem 1rem; border-bottom: 1px solid #eee; display: flex; align-items: center; gap: .5rem; }
 		main { padding: 1rem; }
 		footer { padding: .6rem 1rem; border-top: 1px solid #eee; }
 		.empty { display: none; }
-	')];
+	')
+	];
 
 	@:state var hasHeader = false;
 	@:state var hasFooter = false;

@@ -43,13 +43,16 @@ class ChatMessage extends LitElement {
 **/
 @:customElement("summ-chat")
 class Chat extends LitElement {
-	static var styles = [Theme.base, css('
+	static var styles = [
+		Theme.base,
+		css('
 		:host { display: flex; flex-direction: column; gap: .5rem; }
 		.log { display: flex; flex-direction: column; gap: .3rem; height: 18rem; overflow-y: auto; padding: .3rem; }
 		.typing { font-size: .8em; color: #888; min-height: 1.2em; }
 		.input { display: flex; gap: .5rem; }
 		textarea { resize: none; }
-	')];
+	')
+	];
 
 	/** The user sends a message **/
 	public static final SEND = new EventType<String>("send");

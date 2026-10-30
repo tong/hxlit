@@ -48,7 +48,8 @@ class Template {
 					case _: null;
 				}
 			case _: null;
-		} catch (_) null;
+		} catch (_)
+			null;
 		if (name != null && name != binding)
 			Context.error('Event binding @$binding uses EventType "$name"', receiver.pos);
 	}

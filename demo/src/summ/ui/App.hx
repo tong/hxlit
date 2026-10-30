@@ -17,13 +17,16 @@ import summ.ui.StatusBadge;
 **/
 @:customElement("summ-app")
 class App extends LitElement {
-	static var styles = [Theme.base, css('
+	static var styles = [
+		Theme.base,
+		css('
 		:host { display: block; max-width: 34rem; margin: auto; }
 		summ-card + summ-card { margin-top: 1rem; }
 		h1 { font-size: 1.1rem; margin: 0; flex: 1; }
 		.muted { color: #777; font-size: .9em; }
 		.jid { font-family: monospace; font-size: .8em; color: #888; }
-	')];
+	')
+	];
 
 	@:property public var owner = "owner@example.org";
 	@:property({attribute: "owner-name"}) public var ownerName = "Owner";
@@ -48,7 +51,9 @@ class App extends LitElement {
 		server.onPresence = p -> presence = p;
 		server.onChatState = s -> chatState = s;
 		server.onMessage = m -> messages = messages.concat([m]);
-		server.onReceipt = id -> messages = [for (m in messages) m.id == id ? {var c = Reflect.copy(m); c.received = true; c;} : m];
+		server.onReceipt = id -> messages = [
+			for (m in messages) m.id == id ? {var c = Reflect.copy(m); c.received = true; c;} : m
+		];
 		server.onCall = c -> call = c;
 	}
 

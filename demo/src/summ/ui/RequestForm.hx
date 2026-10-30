@@ -16,13 +16,16 @@ import summ.Model;
 **/
 @:customElement("summ-request-form")
 class RequestForm extends LitElement {
-	static var styles = [Theme.base, css('
+	static var styles = [
+		Theme.base,
+		css('
 		form { display: grid; gap: .7rem; }
 		label { display: grid; gap: .2rem; font-size: .9em; }
 		.error { color: #d63939; font-size: .85em; }
 		.counter { justify-self: end; font-size: .8em; color: #888; }
 		.counter.over { color: #d63939; }
-	')];
+	')
+	];
 
 	public static final REQUEST = new EventType<Request>("request");
 

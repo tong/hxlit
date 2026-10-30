@@ -38,5 +38,4 @@ typedef ComplexAttributeConverter = {
 }
 
 typedef AttributeConverter = EitherType<ComplexAttributeConverter, (value:Null<String>, ?type:Any) -> Any>;
-
 typedef PropertyDeclarations = haxe.DynamicAccess<PropertyDeclaration>;

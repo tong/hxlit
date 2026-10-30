@@ -41,13 +41,13 @@ import lit.LitElement;
 
 @:customElement("my-counter")
 class Counter extends LitElement {
-	static var styles = css('button { color: blue; }');
+ static var styles = css('button { color: blue; }');
 
-	@:property var count = 0;
-	@:property({reflect: true}) var label = "Count";
+ @:property var count = 0;
+ @:property({reflect: true}) var label = "Count";
 
-	override function render()
-		return html('<button @click=${() -> count++}>${label}: ${count}</button>');
+ override function render()
+  return html('<button @click=${() -> count++}>${label}: ${count}</button>');
 }
 ```
 
@@ -90,7 +90,7 @@ Custom element tags used in templates are checked after typing. A tag that no co
 Subclasses of `LitElement` (and `ReactiveElement`) are processed by a build macro:
 
 | Metadata | |
-|---|---|
+| --- | --- |
 | `@:customElement("tag-name")` | Registers the class with `customElements.define` |
 | `@:property` | Reactive property. `type` is inferred: `Int`/`Float` → `Number`, `Bool` → `Boolean`, `String`, `Array`, else `Object` |
 | `@:property({reflect: true, attribute: "my-attr"})` | Reactive property with [options](https://lit.dev/docs/components/properties/#property-options). `type: Boolean` etc. works as in JS, Haxe names like `Bool` and `Int` are accepted too |
@@ -111,17 +111,17 @@ Reactive property names must not clash with existing `HTMLElement` fields such a
 
 ```haxe
 class RequestForm extends LitElement {
-	public static final REQUEST = new EventType<Request>("request");
+ public static final REQUEST = new EventType<Request>("request");
 
-	function submit()
-		REQUEST.dispatch(this, {nick: nick, text: text}); // payload is type checked
+ function submit()
+  REQUEST.dispatch(this, {nick: nick, text: text}); // payload is type checked
 }
 
 class App extends LitElement {
-	function onRequest(req:Request) { ... }
+ function onRequest(req:Request) { ... }
 
-	override function render()
-		return html(<summ-request-form @request=${RequestForm.REQUEST.listen(onRequest)}></summ-request-form>);
+ override function render()
+  return html(<summ-request-form @request=${RequestForm.REQUEST.listen(onRequest)}></summ-request-form>);
 }
 ```
 
@@ -148,8 +148,8 @@ Custom directives extend `lit.directive.Directive` (or `AsyncDirective`):
 
 ```haxe
 class Upper extends Directive {
-	public function new(partInfo:PartInfo) super(partInfo);
-	function render(s:String) return s.toUpperCase();
+ public function new(partInfo:PartInfo) super(partInfo);
+ function render(s:String) return s.toUpperCase();
 }
 
 final upper:(s:String) -> DirectiveResult = Directive.create(Upper);
@@ -159,15 +159,15 @@ final upper:(s:String) -> DirectiveResult = Directive.create(Upper);
 
 ```haxe
 class ClockController implements ReactiveController {
-	final host:ReactiveControllerHost;
+ final host:ReactiveControllerHost;
 
-	public function new(host:ReactiveControllerHost) {
-		this.host = host;
-		host.addController(this);
-	}
+ public function new(host:ReactiveControllerHost) {
+  this.host = host;
+  host.addController(this);
+ }
 
-	function hostConnected() { ... }
-	function hostDisconnected() { ... }
+ function hostConnected() { ... }
+ function hostDisconnected() { ... }
 }
 ```
 

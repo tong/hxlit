@@ -13,12 +13,15 @@ import summ.ui.Controllers;
 **/
 @:customElement("summ-call")
 class CallPanel extends LitElement {
-	static var styles = [Theme.base, css('
+	static var styles = [
+		Theme.base,
+		css('
 		:host { display: flex; gap: .5rem; align-items: center; flex-wrap: wrap; }
 		.state { flex: 1; font-size: .9em; }
 		.ringing { animation: pulse 1s infinite; }
 		@keyframes pulse { 50% { opacity: .4; } }
-	')];
+	')
+	];
 
 	/** Start a call, `true` for video **/
 	public static final CALL = new EventType<Bool>("call");
@@ -31,6 +34,7 @@ class CallPanel extends LitElement {
 
 	@:property({attribute: false}) public var state:CallState = NoCall;
 	@:property({type: Boolean}) public var available = false;
+
 	@:state var muted = false;
 
 	final ticker = new TickController(this);
