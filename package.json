@@ -1,0 +1,14 @@
+{
+  "name": "hxlit",
+  "private": true,
+  "description": "Haxe externs for lit (dev dependencies for demo and tests)",
+  "scripts": {
+    "build:demo": "haxe --cwd demo build.hxml && esbuild demo/bin/main.js --bundle --format=esm --conditions=development --outfile=demo/bin/bundle.js",
+    "test": "haxe test.hxml && esbuild bin/test.js --bundle --platform=browser --format=iife --outfile=bin/test.bundle.js && node test/run.mjs"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2",
+    "jsdom": "^27.0.0",
+    "lit": "3.3.3"
+  }
+}

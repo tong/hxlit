@@ -1,0 +1,11 @@
+{
+  "name": "lit",
+  "url": "https://github.com/tong/hxlit",
+  "license": "MIT",
+  "classPath": "src",
+  "tags": ["lit", "web-components", "custom-elements", "javascript", "js", "web", "extern"],
+  "description": "Haxe externs for lit, a library for building web components",
+  "releasenote": "Initial release",
+  "version": "3.3.3",
+  "contributors": ["tong"]
+}
