@@ -6,11 +6,9 @@ import lit.LitElement;
 import summ.FakeServer;
 import summ.Model;
 import summ.ui.CallPanel;
-import summ.ui.Card;
 import summ.ui.Chat;
 import summ.ui.Controllers;
 import summ.ui.RequestForm;
-import summ.ui.StatusBadge;
 
 /**
 	The page: request first, then chat and calls.
@@ -52,7 +50,8 @@ class App extends LitElement {
 		server.onChatState = s -> chatState = s;
 		server.onMessage = m -> messages = messages.concat([m]);
 		server.onReceipt = id -> messages = [
-			for (m in messages) m.id == id ? {var c = Reflect.copy(m); c.received = true; c;} : m
+			for (m in messages)
+				m.id == id ? {var c = Reflect.copy(m); c.received = true; c;} : m
 		];
 		server.onCall = c -> call = c;
 	}

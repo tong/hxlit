@@ -1,6 +1,7 @@
+-js bin/main.js
+-main Main
 -cp ../src
 -cp src
--main Main
--js bin/main.js
--D js-es=6
+--macro include("summ.ui")
 -dce full
+-D js-es=6
