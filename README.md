@@ -11,7 +11,7 @@ haxelib dev lit path/to/hxlit
 npm install lit
 ```
 
-Requires Haxe 5. Custom elements must be real ES6 classes, so `-lib lit` adds `-D js-es=6` through `extraParams.hxml`. If you add `src/` to the classpath directly instead, set `-D js-es=6` yourself; the build macro raises an error without it.
+Requires a Haxe 5 nightly build; 5.0.0-preview.1 doesn't support `@:js.import`. Custom elements must be real ES6 classes, so `-lib lit` adds `-D js-es=6` through `extraParams.hxml`. If you add `src/` to the classpath directly instead, set `-D js-es=6` yourself; the build macro raises an error without it.
 
 The output is an ES module that imports from `lit` (generated through `@:js.import`):
 

@@ -5,20 +5,14 @@ on: [push, pull_request]
 jobs:
   test:
     runs-on: ubuntu-24.04
-    continue-on-error: ${{ matrix.haxe == 'latest' }}
-    strategy:
-      fail-fast: false
-      matrix:
-        haxe:
-          - 5.0.0-preview.1
-          - latest
     steps:
       - uses: actions/checkout@v7
 
-      - name: Install haxe ${{ matrix.haxe }}
+      # nightly: 5.0.0-preview.1 lacks @:js.import
+      - name: Install haxe
         uses: krdlab/setup-haxe@v2.1.1
         with:
-          haxe-version: ${{ matrix.haxe }}
+          haxe-version: latest
 
       - uses: actions/setup-node@v5
         with:
